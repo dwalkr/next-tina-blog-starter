@@ -10,7 +10,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -19,7 +19,9 @@ export default function Post({ post, morePosts, preview }) {
   }
 
   const [htmlContent, setHtmlContent] = useState(post.content)
+  const initialContent = useMemo(() => post.rawMarkdownBody, [])
   useEffect(() => {
+    if (initialContent == post.rawMarkdownBody) return
     markdownToHtml(post.rawMarkdownBody).then(setHtmlContent)
   }, [post.rawMarkdownBody])
 
