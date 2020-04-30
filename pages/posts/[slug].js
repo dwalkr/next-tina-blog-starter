@@ -10,12 +10,19 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
+import { useState, useEffect } from 'react'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
+  const [htmlContent, setHtmlContent] = useState(post.content)
+  useEffect(() => {
+    markdownToHtml(post.rawMarkdownBody).then(setHtmlContent)
+  }, [post.rawMarkdownBody])
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -37,7 +44,7 @@ export default function Post({ post, morePosts, preview }) {
                 date={post.date}
                 author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={htmlContent} />
             </article>
           </>
         )}
