@@ -63,6 +63,7 @@ export async function getStaticProps({ params }) {
       post: {
         ...post,
         content,
+        rawMarkdownBody: post.content,
       },
     },
   }
