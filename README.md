@@ -1,6 +1,6 @@
 # Next.js static blog starter + TinaCMS
 
-This example project uses Next.js' [blog starter](https://next-blog-starter.now.sh/) and adds Tina to it according to the [Tina boostrapping guide](http://localhost:3001/guides/nextjs/adding-tina/overview).
+This example project uses Next.js' [blog starter](https://next-blog-starter.now.sh/) and adds Tina to it according to the [Tina boostrapping guide](https://tinacms.org/guides/nextjs/adding-tina/overview).
 
 ## A starting point for Tina-powered websites
 
