@@ -17,7 +17,7 @@
     "react-tinacms-editor": "^0.29.0",
     "react-tinacms-inline": "^0.29.0",
     "remark": "11.0.2",
-    "remark-html": "10.0.0",
+    "remark-html": "13.0.2",
     "styled-components": "^5.1.0",
     "tinacms": "latest"
   },
